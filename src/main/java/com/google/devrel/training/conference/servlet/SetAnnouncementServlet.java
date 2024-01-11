@@ -34,7 +34,9 @@ public class SetAnnouncementServlet extends HttpServlet {
 		// Query for conferences with less than 5 seats left
 
 		//ConferenceQueryForm conferenceQueryForm = new ConferenceQueryForm();
-		Iterable<Conference> iterable = ofy().load().type(Conference.class).filter("seatsAvailable <", 5).filter("seatsAvailable >", 0);
+		Iterable<Conference> iterable = ofy().load().type(Conference.class)
+				.filter("seatsAvailable <", 5)
+				.filter("seatsAvailable >", 0);
 
 		// TODO
 		// Iterate over the conferences with less than 5 seats less
