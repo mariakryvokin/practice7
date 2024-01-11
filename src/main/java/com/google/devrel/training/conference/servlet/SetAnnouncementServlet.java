@@ -26,6 +26,8 @@ import javax.servlet.http.HttpServletResponse;
 @SuppressWarnings("serial")
 public class SetAnnouncementServlet extends HttpServlet {
 
+	public static final java.lang.String JOINER = ", ";
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -52,7 +54,7 @@ public class SetAnnouncementServlet extends HttpServlet {
 			// Build a String that announces the nearly sold-out conferences
 			StringBuilder announcementStringBuilder = new StringBuilder(
 					"Last chance to attend! The following conferences are nearly sold out: ");
-			Joiner joiner = Joiner.on(", ").skipNulls();
+			Joiner joiner = Joiner.on(JOINER).skipNulls();
 			announcementStringBuilder.append(joiner.join(conferenceNames));
 
 			// TODO
